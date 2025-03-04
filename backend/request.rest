@@ -1,0 +1,25 @@
+GET http://localhost:5000/notes
+
+###
+
+POST http://localhost:5000/add-note 
+Content-Type: application/json
+
+{
+    "nama": "tes",
+    "isi": "aku capek mau bobok plis mas nanti masih kelas ekonomi, tapi ya gimana lagi"
+}
+
+### 
+
+PUT http://localhost:5000/edit-note/1
+Content-Type: application/json
+
+{
+    "nama": "peler",
+    "isi": "tapi ya gimana lagi"
+}
+
+###
+
+DELETE http://localhost:5000/delete-note/17
