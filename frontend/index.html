@@ -37,7 +37,7 @@
 
             let response;
             if (id) {
-                response = await fetch(`${API_URL}/edit-note/${id}`, { // 🔥 Pakai endpoint edit
+                response = await fetch(`${API_URL}/edit-note/${id}`, {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ nama, isi })
