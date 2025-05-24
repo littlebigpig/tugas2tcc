@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/littlebigpig/tugas2tcc/issues"
   },
-  "homepage": "https://github.com/littlebigpig/tugas2tcc#readme"
+  "homepage": "https://github.com/littlebigpig/tugas2tcc#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.5.0",
+    "jsonwebtoken": "^9.0.2"
+  }
 }

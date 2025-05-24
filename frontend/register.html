@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Catatan Sederhana</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: auto; padding: 20px; }
+        input, button { width: 100%; margin: 5px 0; padding: 10px; }
+        .btn-register { background: green; color: white; border: none; cursor: pointer; }
+        .btn-login { background: blue; color: white; border: none; padding: 5px; cursor: pointer; }
+        .error { color: red; margin: 5px 0; }
+        .success { color: green; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h2>Register</h2>
+    <div id="message"></div>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <input type="password" id="confirmPassword" placeholder="Konfirmasi Password">
+    <button class="btn-register" onclick="registerUser()">Daftar</button>
+    <p>Sudah punya akun? <button class="btn-login" onclick="location.href='login.html'">Login</button></p>
+
+    <script>
+        const API_URL = "https://notes-be148-870764645625.us-central1.run.app";
+        
+        async function registerUser() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const message = document.getElementById('message');
+            
+            if (!username || !password || !confirmPassword) {
+                message.innerHTML = '<div class="error">Semua field harus diisi!</div>';
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                message.innerHTML = '<div class="error">Password tidak sama!</div>';
+                return;
+            }
+            
+            try {
+                const response = await axios.post(`${API_URL}/register`, {
+                    username: username,
+                    password: password
+                });
+                
+                message.innerHTML = '<div class="success">Register berhasil!</div>';
+                
+                setTimeout(() => {
+                    window.location.href = '/login.html';
+                }, 1000);
+                
+            } catch (error) {
+                message.innerHTML = '<div class="error">Register gagal!</div>';
+            }
+        }
+    </script>
+</body>
+</html>
