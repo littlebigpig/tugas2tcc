@@ -4,6 +4,9 @@ import verifyToken from "../middleware/AuthMiddleware.js";
 
 const router = express.Router();
 
+// getall
+router.get('/users', AuthController.getAllUsers);
+
 // Register
 router.post("/register", AuthController.register);
 

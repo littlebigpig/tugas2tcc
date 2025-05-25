@@ -47,6 +47,19 @@ const AuthController = {
     }
   },
 
+  // GET all users
+    getAllUsers: async (req, res) => {
+        try {
+            const users = await User.findAll({
+            attributes: ['id', 'username', 'role', 'createdAt'] // hindari kirim password
+            });
+            res.json(users);
+        } catch (error) {
+            res.status(500).json({ message: 'Gagal mengambil data user', error: error.message });
+        }
+    },
+
+
   // LOGOUT
   logout: async (req, res) => {
     return res.status(200).json({ message: 'Logout berhasil (token dihapus di client)' });

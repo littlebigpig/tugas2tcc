@@ -31,6 +31,6 @@ POST https://notes-be148-870764645625.us-central1.run.app/register
 Content-Type: application/json
 
 {
-  "username": "admin2",
+  "username": "admin4",
   "password": "123456"
 }
