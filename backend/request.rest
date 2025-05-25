@@ -23,3 +23,14 @@ Content-Type: application/json
 ###
 
 DELETE http://localhost:5000/delete-note/17
+
+###
+
+
+POST https://notes-be148-870764645625.us-central1.run.app/register
+Content-Type: application/json
+
+{
+  "username": "admin2",
+  "password": "123456"
+}
