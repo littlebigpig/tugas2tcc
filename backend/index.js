@@ -3,6 +3,9 @@ import cors from "cors";
 import db from "./config/Database.js";
 import NoteRoute from "./routes/NoteRoute.js";
 import AuthRoute from "./routes/AuthRoute.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
