@@ -51,7 +51,7 @@ const AuthController = {
     getAllUsers: async (req, res) => {
         try {
             const users = await User.findAll({
-            attributes: ['id', 'username', 'role', 'createdAt'] // hindari kirim password
+            attributes: ['id', 'username', 'createdAt'] // hindari kirim password
             });
             res.json(users);
         } catch (error) {
